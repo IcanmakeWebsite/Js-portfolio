@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JS Web Designing | Portfolio</title>
+
+<style>
+/* --- RESET & BASIC STYLES --- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e293b;
+    line-height: 1.6;
+}
+
+/* --- HEADER / NAV --- */
+header{
+    background:#0f172a;
+    color:white;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 0.5px;
+}
+
+nav a{
+    color:#e2e8f0;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* --- HERO SECTION --- */
+.hero{
+    padding:100px 8% 80px;
+    text-align:center;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.hero h1{
+    font-size:42px;
+    color:#0f172a;
+    margin-bottom: 15px;
+}
+
+.hero p{
+    margin-bottom:30px;
+    font-size:18px;
+    color: #475569;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+/* --- SECTIONS --- */
+section{
+    padding:70px 8%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:32px;
+    color: #0f172a;
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #2563eb;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* --- CARDS & GRID --- */
+.cards{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    flex:1;
+    min-width:260px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card h3{
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.card p{
+    color: #64748b;
+}
+
+/* --- PROJECTS --- */
+.project{
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    margin:15px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,0.03);
+    border-left: 5px solid #2563eb;
+}
+
+.project h3{
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+.project p{
+    color: #64748b;
+}
+
+/* --- ABOUT SECTION --- */
+.about-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+
+/* --- CONTACT SECTION --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 24px;
+}
+
+.contact-details h4 {
+    color: #0f172a;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-details p {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.contact-form {
+    flex: 1.2;
+    min-width: 280px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: #2563eb;
+}
+
+.form-btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+footer{
+    background:#0f172a;
+    color:#94a3b8;
+    text-align:center;
+    padding:25px;
+    font-size: 14px;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    nav a {
+        margin: 0 8px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="#home" class="logo-container">
+        <img src="logo.png" alt="JS Web Designing Logo" class="logo-img">
+        <span class="logo-text">JS Web Designing</span>
+    </a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <h1>Professional Website Designer</h1>
+    <p>I create modern, responsive websites for businesses and personal brands.</p>
+    <a class="btn" href="#contact">Hire Me</a>
+</div>
+
+<section id="services">
+    <h2 class="title">My Services</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Business Websites</h3>
+            <p>Modern, fast-loading websites built to showcase shops, companies, and startups.</p>
+        </div>
+        <div class="card">
+            <h3>Portfolio Websites</h3>
+            <p>Personalized portfolio websites designed to highlight your work and build your brand.</p>
+        </div>
+        <div class="card">
+            <h3>Landing Pages</h3>
+            <p>High-converting, sleek single-page designs optimized for products and campaigns.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2 class="title">My Projects</h2>
+    <div class="project">
+        <h3>Restaurant Website</h3>
+        <p>Interactive online menu and reservation contact setup.</p>
+    </div>
+    <div class="project">
+        <h3>E-commerce Demo</h3>
+        <p>Modern product showcase layout with a sleek user interface.</p>
+    </div>
+    <div class="project">
+        <h3>Business Landing Page</h3>
+        <p>Clean, single-page business layout designed for conversions.</p>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="title">About Me</h2>
+    <div class="about-box">
+        <p>I am a freelance web designer creating fast, simple, and beautiful websites using HTML, CSS, and JavaScript. My goal is to build sites that help businesses grow online.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="title">Contact Me</h2>
+    <div class="contact-container">
+        
+        <!-- CLICKABLE CONTACT DETAILS -->
+        <div class="contact-info">
+            <a href="mailto:lbsgaming728@gmail.com" class="contact-card">
+                <span class="contact-icon">📧</span>
+                <div class="contact-details">
+                    <h4>Email Me</h4>
+                    <p>lbsgaming728@gmail.com</p>
+                </div>
+            </a>
+
+            <a href="tel:+918544949861" class="contact-card">
+                <span class="contact-icon">📞</span>
+                <div class="contact-details">
+                    <h4>Call Me</h4>
+                    <p>+91 85449 49861</p>
+                </div>
+            </a>
+
+            <a href="https://wa.me/918544949861" target="_blank" class="contact-card">
+                <span class="contact-icon">💬</span>
+                <div class="contact-details">
+                    <h4>WhatsApp</h4>
+                    <p>+91 85449 49861</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- QUICK MESSAGE FORM -->
+        <form class="contact-form" action="https://formspree.io/f/lbsgaming728@gmail.com" method="POST">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn form-btn">Send Message</button>
+        </form>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 JS Web Designing | All Rights Reserved
+</footer>
+
+</body>
+          </html>
+          
